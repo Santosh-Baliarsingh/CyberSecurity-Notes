@@ -3,6 +3,10 @@
 
 **Welcome to My personal CyberSecurity Notes! This repository is a curated collection of `concepts`, `explanations`, `real-world examples`, and `best practices` related to `cybersecurity`.**
 
+## 📜 Legal & Disclaimer
+
+- **Please read the [DISCLAIMER.md](/DISCLAIMER.md) before using or referencing this content.**
+
 ## Table of Content
 
 | No | Section                                     | Sub-Section |
