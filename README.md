@@ -1,443 +1,142 @@
 <!-- markdownlint-disable MD033 -->
-# Cyber Security Notes
-
-**Welcome to My personal CyberSecurity Notes! This repository is a curated collection of `concepts`, `explanations`, `real-world examples`, and `best practices` related to `cybersecurity`.**
-
-## 📜 Legal & Disclaimer
-
-- **Please read the [DISCLAIMER.md](/DISCLAIMER.md) before using or referencing this content.**
+# Penetration Tester
 
 ## Table of Content
 
 | No | Section                                     | Sub-Section |
 |----|---------------------------------------------|-------------|
-| 1  | [**Governance & Regulation in Cybersecurity**](#governance--regulation-in-cybersecurity) |  a. [**Important Terminologies**](#important-terminologies)<br> b. [**What is Cybersecurity Governance?**](#what-is-cybersecurity-governance)<br> c. [**Key Components of Cybersecurity Governance**](#key-components-of-cybersecurity-governance)<br> d. [**Cybersecurity Regulations & Laws**](#cybersecurity-regulations--laws)<br> e. [**Real-World Example of Governance & Regulation**](#real-world-example-of-governance--regulation)<br> f. [**Tools & Frameworks for Governance**](#tools--frameworks-for-governance)<br> g. [**Summary Notes**](#summary-notes) |
-| 2  | [**Cyber Kill Chain**](#cyber-kill-chain)   |  a. [**Reconnaissance**](#1-reconnaissance-target-identification)<br> b. [**Weaponization**](#2-weaponization-creating-payload)<br> c. [**Delivery**](#3-delivery-delivering-the-payload)<br> d. [**Exploitation**](#4-exploitation-triggering-the-exploit)<br> e. [**Installation**](#5-installation-installing-malware)<br> f. [**Command and Control**](#6-command-and-control-c2)<br> g. [**Actions on Objectives**](#7-actions-on-objectives-final-goal-achieved)<br> h. [**Kill Chain Summary Table**](#kill-chain-summary-table)<br> i. [**Realistic Scenario in Flow**](#realistic-scenario-in-flow) |
-| 3  | [**Cybersecurity Principles**](#cybersecurity-principles) |  a. [**CIA Triad**](#1-cia-triad-core-security-principles)<br> b. [**DAD Triad**](#2-dad-triad-attackers-goals)<br> c. [**Defense-in-Depth**](#3-defense-in-depth)<br> d. [**Fundamental Concepts of Security Models**](#4-fundamental-concepts-of-security-models)<br> e. [**ISO/IEC 19249**](#5-isoiec-19249)<br> f. [**Zero Trust vs Trust but Verify**](#6-zero-trust-vs-trust-but-verify)<br> g. [**Threat vs Risk**](#7-threat-vs-risk)<br> h. [**Summary Notes (Quick Reference Table)**](#summary-notes-quick-reference-table) |
+| 1  | [**Penetration Testing Fundamentals**](#penetration-testing-fundamentals) |  a. [**What is Penetration Testing?**](#what-is-penetration-testing)<br> b. [**Penetration Testing Ethics**](#penetration-testing-ethics)<br> c. [**Key Ethical Principles**](#key-ethical-principles) |
+| 2  | [**Penetration Testing Methodologies**](#penetration-testing-methodologies) |  |
+| 4  | [**Types of Penetration Testing**](#types-of-penetration-testing) | a. [**Penetration Testing Scenarios Table**](#penetration-testing-scenarios-table) |
+| 5  | [**Popular Tools Used in Pentesting**](#popular-tools-used-in-pentesting) |  a. [**Summary**](#summary) |
 
-## Governance & Regulation in Cybersecurity
+## Penetration Testing Fundamentals
 
-### Important Terminologies
+## What is Penetration Testing?
 
-- **`Governance`:**
+- **`Penetration Testing` (also known as `Ethical Hacking`)** is a **`controlled and authorized attack`** simulation performed by **`cybersecurity professionals`** to **`identify vulnerabilities in systems, networks, or applications`** before malicious hackers can exploit them.
+
+  - It is part of a broader security assessment strategy and provides practical insight into **`how secure a system really is`**.
+
+  - The goal is not just to **`find vulnerabilities`**, but to **`assess the impact, prioritize risks, and recommend remediation`** steps.
+
+- **`Real-life analogy`:** Imagine a company hires a professional burglar to break into their building — not to steal anything, but to check if their doors, windows, cameras, and alarms are secure enough.
+
+## Penetration Testing Ethics
+
+- Penetration Testing is performed **`legally and ethically`** with strict guidelines and moral responsibilities. Here's what ethical behavior in pentesting looks like:
+
+### Key Ethical Principles
+
+| **Principle**                 | **Description**                                                                                                                         |
+|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| **`Authorization`**           | Always obtain **`written permission` (`scope of work`)** from the system owner before performing any tests.                             |
+| **`Confidentiality`**         | All findings and sensitive data during the test must be kept **`confidential`**. No data should be leaked, shared, or reused elsewhere. |
+| **`Non-Destructive Testing`** | The test must not cause **`system downtime`, `data loss`, or `service disruptions`** unless explicitly allowed.                         |
+| **`Integrity in Reporting`**  | Reports should be **`accurate`, `honest`, and `objective`,** regardless of how the test went.                                           |
+| **`No Personal Gain`**        | An ethical hacker should **`never exploit`** a vulnerability for personal benefit.                                                      |
+
+- **Without a signed agreement or contract, any testing is considered `illegal hacking` (`a criminal offense`)**.
+
+## Penetration Testing Methodologies
+
+- Penetration Testing isn't done randomly — professionals follow **`established methodologies`** to ensure thoroughness, structure, and reliability.
+
+- **`Common Methodologies`:**
   
-  - Managing and directing an organisation or system to achieve its objectives and ensure compliance with laws, regulations, and standards.
+1. **`PTES` (`Penetration Testing Execution Standard`)**
 
-- **`Regulation`:**
-  
-  - A rule or law enforced by a governing body to ensure compliance and protect against harm.
+   - Full process from **`pre-engagement` to `post-exploitation`** and reporting.
 
-- **`Compliance`:**
-  
-  - The state of adhering to laws, regulations, and standards that apply to an organisation or system.
+2. **`OSSTMM` (`Open Source Security Testing Methodology Manual`)**
 
-### What is Cybersecurity Governance?
+   - Focuses on **`operational security`** and legal clarity.
 
-- Cybersecurity governance is the `framework` used by organizations to manage and direct their security efforts. It ensures that:
+3. **`OWASP` Testing Guide**
 
-  - Cybersecurity aligns with business goals
+   - Ideal for **`web applications`**. Follows the top 10 web vulnerabilities.
 
-  - Risks are identified and managed
+4. **`NIST SP800-115`**
 
-  - Policies, roles, and responsibilities are clearly defined
+   - U.S. government standard for security assessments.
 
-  - Legal and regulatory compliance is maintained
+## Typical Phases of a Penetration Test
 
-## Key Components of Cybersecurity Governance
+| **Phase**                                         | **Description**                                                                                                       |
+|---------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| **1. `Pre-engagement` (`Planning`)**              | **`Define scope`, `goals`, `legal agreements`, `tools`, `timeline`, `team roles`**.                                   |
+| **2. `Reconnaissance` (`Information Gathering`)** | **`Passive and active scanning`, `DNS lookup`, `WHOIS, Google hacking`,** etc.                                        |
+| **3. `Scanning` & `Enumeration`**                 | **Use tools like `Nmap to scan ports`, `detect OS`, `services`, and `gather internal details`.**                      |
+| **4. `Vulnerability Analysis`**                   | **Identify known `vulnerabilities using scanners` (`Nessus`, `Nikto`, `OpenVAS`, etc.)**.                             |
+| **5. `Exploitation`**                             | **Try to `gain access` using `exploits`, `misconfigurations`, and `weak credentials`**.                               |
+| **6. `Post-Exploitation`**                        | **Assess the `impact`, `extract data`, `escalate privileges`, and `maintain access`**.                                |
+| **7. `Reporting`**                                | **Deliver a `comprehensive report` that includes `findings`, `screenshots`, `risk levels`, and `recommended fixes`**. |
 
-| **Component**          | **Description**                                                                 |
-|------------------------|-----------------------------------------------------------------------------|
-| **`Policies` & `Standards`**   | Define how the organization protects data and systems (e.g., password policies, encryption standards). |
-| **`Risk Management`**        | Identifies, assesses, and prioritizes cybersecurity risks.                 |
-| **`Roles` & `Responsibilities`** | Assigns responsibilities (CISO, IT Admin, Security Analyst, etc.).       |
-| **`Monitoring` & `Reporting`** | Ensures continuous oversight and improvement of security controls.         |
-| **`Incident Response Plan`** | Guides how to respond to cyber incidents effectively.                      |
+## Types of Penetration Testing
 
-## Cybersecurity Regulations & Laws
+- **`Penetration tests`** are divided based on how much information the tester is given. There are **`three primary types`:**
 
-### Global Regulations
+- **`Black Box Testing`(`No Knowledge`)**
 
-| **Law/Framework**   | **Purpose**                                                                                     |
-|-----------------------|---------------------------------------------------------------------------------------------|
-| **`GDPR` (`EU`)**             | General Data Protection Regulation: Protects personal data and privacy of EU citizens. Heavy fines for data breaches. |
-| **`HIPAA` (`USA`)**           | Protects health information in the healthcare sector.                                      |
-| **`PCI-DSS`**               | For organizations handling credit card data (banks, payment processors).                   |
-| **`NIST Framework` (`USA`)**  | National Institute of Standards and Technology: A security guideline followed by government and private companies. |
+  - **`No prior knowledge`** of the target system.
 
-### Indian Cybersecurity Regulations
+  - Tester acts like an external hacker.
 
-| **Law/Policy**            | **Description**                                                                 |
-|---------------------------|---------------------------------------------------------------------------------|
-| **`IT Act 2000`**               | Main cyber law in India. Covers hacking, identity theft, cyber terrorism, etc.  |
-| **`CERT-In Guidelines` (`2022`)** | Indian Computer Emergency Response Team mandates breach reporting within 6 hours.|
-| **`Data Protection Act` (`2023`)**| Aims to safeguard personal data and privacy of Indian citizens (inspired by GDPR).|
-| **`Digital India Initiatives`** | Promotes cybersecurity in e-Governance, digital banking, and Aadhaar systems.   |
+  - Time-consuming and realistic.
 
-## Real-World Example of Governance & Regulation
+  - Used to simulate real-world attacks from outsiders.
 
-- Let’s say **`"SecureBank Ltd."`** is a digital bank in India.
+- **`Example`:** A company asks you to test their e-commerce website without telling you anything about its structure, technologies, or credentials.
 
-- 👨‍💼 **`Governance`:**
+- **`Grey Box Testing`(`Partial Knowledge`)**
 
-  - The **`CISO`** sets a policy: All customer data must be encrypted and stored in India.
+  - Partial knowledge of the system.
 
-  - A risk assessment shows their mobile app backend is vulnerable.
+  - You may receive user-level credentials or some internal documentation.
 
-  - Security team is assigned responsibility to fix it within 30 days.
+  - Mimics an insider threat (e.g., an employee or partner).
 
-- 📜 **`Regulation`:**
+- **`Example`:** A company gives you a standard user account and asks you to try accessing admin-level data or perform privilege escalation.
 
-  - They follow **`CERT-In rules`** and must report any data breach within **`6 hours`**.
+- **`White Box Testing`(`Full Knowledge`)**
 
-  - They must comply with **`Data Protection Act 2023`** ensuring customers can delete or correct their data.
+  - Full access to the internal system: source code, infrastructure, architecture, credentials.
 
-  - Their credit card processing must meet **`PCI-DSS standards`**.
+  - Deep and thorough testing.
 
-## Tools & Frameworks for Governance
+  - Used to test **`logic flaws`, `code-level bugs`, and `internal misconfigurations`**.
 
-| **Tool/Framework**     | **Usage**                                                                                   |
-|-------------------------|---------------------------------------------------------------------------------------------|
-| **`ISO/IEC 27001`**          | International standard for managing information security                                     |
-| **`NIST CSF`**               | Risk management and cybersecurity best practices                                            |
-| **`COBIT`**                  | Governance framework for IT management                                                      |
-| **`SOC 2`**                  | Audit standard for service providers handling data                                          |
+- **`Example`:** A bank gives you full access to their internal system, including admin credentials and source code, to find deep security holes before launching it publicly.
 
-### Summary Notes
+### Real-World Scenarios
 
-- **`Cybersecurity governance`** = Strategy + policies + roles for secure operations.
+### Penetration Testing Scenarios Table
 
-- **`Regulation`** = Laws enforced by governments to protect user data and systems.
+| **Test Type**      | **Scenario**                                                                                                                                                                            |
+|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **`BlackBox`**     | You're hired to test a university website. You only know the URL. You perform recon, look for login pages, try SQL injection, brute-force, and enumerate users.                         |
+| **`GreyBox`**      | A startup provides a regular user account for their SaaS app. You explore session manipulation, broken access controls, and insecure API endpoints to try accessing admin data.         |
+| **`WhiteBox`**     | A hospital gives you full backend access to their patient management app. You analyze the source code and identify hardcoded passwords, API token leaks, and insecure session handling. |
 
-- Real-world organizations must follow both internal policies (governance) and external laws (regulation).
+## Popular Tools Used in Pentesting
 
-- Non-compliance can result in **`hefty fines`**, **`loss of reputation`**, or even **`legal action`**.
+### Tools Used in Penetration Testing
 
-## Cyber Kill Chain
+| **Phase**                      | **Tools**                                            |
+|--------------------------------|------------------------------------------------------|
+| **`Reconnaissance`**           | **`Google Dorking`, `Maltego`, `Recon-ng`**          |
+| **`Scanning` & `Enumeration`** | **`Nmap`, `Nessus`, `Nikto`, `Dirb`, `Gobuster`**    |
+| **`Exploitation`**             | **`Metasploit`, `SQLmap`, `Burp Suite`, `Hydra`**    |
+| **`Post Exploitation`**        | **`Mimikatz`, `Empire`, `PowerSploit`**              |
+| **`Web App Testing`**          | **`OWASP ZAP`, `Burp Suite`, `Wfuzz`**               |
+| **`Reporting`**                | **`Dradis`, `Serpico`, `CherryTree`**                |
 
-- The **`Cyber Kill Chain`** — a concept developed by **`Lockheed Martin`** in `2011`.
+## Summary
 
-- The **`Cyber Kill Chain`** is a **`framework`** that outlines the steps adversaries follow to launch and execute a `cyberattack`. It helps defenders identify and stop attackers at various stages.
+- Penetration Testing helps secure systems by identifying weaknesses **`before attackers do`**.
 
-### **1. `Reconnaissance` (`Target Identification`)**
+- It requires **`ethical behavior`, `methodical approaches`, and `realistic testing scenarios`**.
 
-- **`What happens`:**
+- Understanding the **`types of testing` (`Black`, `White`, `Grey`)** helps define your role and scope.
 
-  - The attacker gathers information about the target organization (**`OSINT`**, **`social media`**, **`employee info`**, **`tech stack`**)
-
-- **`Real-World Example`:**
-
-  - Attacker searches for examplecorp.com on:
-
-  - LinkedIn (employee names, job titles)
-
-  - Shodan (open servers and devices)
-
-  - Google Dork:
-  
-    ```bash
-    site:examplecorp.com filetype:pdf
-    ```
-
-  - Finds exposed `PDF documents` with `employee emails` and `internal IPs`.
-
-- **`Defender Tip`:** Monitor for unauthorized scanning and public exposure of internal docs.
-
-### **2. `Weaponization` (`Creating Payload`)**
-
-- **`What happens`:**
-
-  - The attacker crafts a **`weaponized payload`** using an exploit + a backdoor or malware.
-
-- **`Real-World Example`:**
-
-  - Attacker creates a malicious **`PDF file`** that uses an old Adobe Reader vulnerability to run a reverse shell.
-
-- **`Defender Tip`:** Use `sandboxing` and `antivirus` to detect crafted payloads before they execute.
-
-### **3. `Delivery` (`Delivering the Payload`)**
-
-- **`What happens`:**
-  
-- The attacker delivers the payload via:
-
-  - Email (phishing)
-
-  - USB drops
-
-  - Malicious websites
-
-  - Drive-by downloads
-
-- **`Real-World Example`:**
-
-  - A **`phishing email`** is sent to an employee pretending to be HR with a subject: **`"Salary Hike Details - March 2025"`**
-
-  - Attached **`PDF`** has the exploit from **`Step 2`**.
-
-- **`Defender Tip`:** Train employees to recognize phishing. Use email filters and spam protection.
-
-### **4. `Exploitation` (`Triggering the Exploit`)**
-
-- **`What happens`:**
-  
-  - Once the victim opens the payload, the exploit runs and executes the attacker's code.
-
-- **`Real-World Example`:**
-
-  - Employee opens the malicious `PDF`.
-
-  - **`Exploit triggers`**, runs a **`reverse shell`**:
-
-  - Attacker gets **`low-privileged access`** to the **`user’s system`**.
-
-- **`Defender Tip`:** Keep software patched. Use **`endpoint detection` (`EDR`)**.
-
-### **5. `Installation` (`Installing Malware`)**
-
-- **`What happens`:**
-  
-  - Attacker installs **`malware` (`backdoor`, `keylogger`, `trojan`)** to maintain access.
-
-- **`Real-World Example`:**
-
-  - Attacker installs **`Cobalt Strike Beacon`** or **`Netcat listener`** for **`persistence`**:
-  
-  ```bash
-  nc -nlvp 4444
-  ```
-
-- **`Defender Tip`:** Monitor `registry changes`, `startup scripts`, and use `behavior-based detection`.
-
-### **6. `Command and Control` (`C2`)**
-
-- **`What happens`:**
-  
-  - The attacker establishes communication with the victim's system to send commands and receive stolen data.
-
-- **`Real-World Example`:**
-
-  - Infected system pings a remote `C2` server every 10 seconds via HTTP.
-
-  - Attacker sends command to **`escalate privileges`** or **`download more malware`**.
-
-- **`Defender Tip`:** Monitor `outbound traffic` for connections to `unusual domains` or `IPs`.
-
-### **7. `Actions on Objectives` (`Final Goal Achieved`)**
-
-- **`What happens`:**
-  
-- Attacker performs the intended objective:
-
-  - **`Data theft`**
-
-  - **`Destroy systems`**
-
-  - **`Ransomware attack`**
-
-  - **`Lateral movement`**
-
-- **`Real-World Example`:**
-
-  - Attacker uses stolen credentials to access the `finance department server`.
-
-  - `Exfiltrates` payroll data and sends to external server.
-
-- **`Defender Tip`:** Use file `integrity monitoring`, `DLP systems`, and `role-based access control`.
-
-### Kill Chain Summary Table
-
-| **Stage**                      | **Attacker's Action**      | **Real-World Example**                   | **Defense**                          |
-|--------------------------------|----------------------------|------------------------------------------|--------------------------------------|
-| **`1. Reconnaissance`**        | **`Gather info`**          | **`Google`, `LinkedIn`, `Shodan`**       | **`OSINT monitoring`**               |
-| **`2. Weaponization`**         | **`Create payload`**       | **`Malicious PDF with exploit`**         | **`Sandbox`, `signature detection`** |
-| **`3. Delivery`**              | **`Send payload`**         | **`Phishing email`**                     | **`Email filters`, `training`**      |
-| **`4. Exploitation`**          | **`Trigger exploit`**      | **`PDF opens reverse shell`**            | **`Patching`, `EDR`**                |
-| **`5. Installation`**          | **`Install malware`**      | **`Cobalt Strike beacon`**               | **`Behavior detection`**             |
-| **`6. Command & Control`**     | **`Remote control`**       | **`C2 via HTTP to attacker server`**     | **`Monitor outbound traffic`**       |
-| **`7. Actions on Objectives`** | **`Final impact`**         | **`Data exfiltration`**                  | **`DLP`, `logging`, `SIEM`**         |
-
-### Realistic Scenario in Flow
-
-- Attacker identifies target `John@company.com` on LinkedIn (`Recon`).
-
-- Crafts a PDF with an exploit and backdoor (`Weaponization`).
-
-- Sends a phishing email (`Delivery`).
-
-- John opens it, exploit runs (`Exploitation`).
-
-- Malware installs, persists (`Installation`).
-
-- Machine connects to attacker’s C2 server (`C2`).
-
-- Attacker steals sensitive internal financial reports (`Objectives`).
-
-## Cybersecurity Principles
-
-### **1. `CIA Triad` (`Core Security Principles`)**
-
-- **`What is it?`**
-  
-- A foundational model for ensuring information security. It stands for:
-
-  - **`C`onfidentiality**
-  
-  - **`I`ntegrity**
-
-  - **`A`vailability**
-
-- **`Real-World Examples`:**
-
-### CIA Triad Table
-
-| **Principle**         | **Meaning**                                      | **Example**                                                                 |
-|-----------------------|--------------------------------------------------|-----------------------------------------------------------------------------|
-| **`Confidentiality`** | Only authorized people can access data           | Bank encrypts your account details; attacker cannot read your ATM PIN       |
-| **`Integrity`**       | Data should not be tampered with                 | Tamper-proof logs in a healthcare system; no one can alter patient records  |
-| **`Availability`**    | Systems/data should be accessible when needed    | Google services (Gmail, Drive) must be available 24/7; DDOS protection ensures this |
-
-### **2. `DAD Triad` (`Attacker’s Goals`)**
-
-- While **`CIA`** is from the **`defender’s side`**, **`DAD`** is from the **`attacker’s view`**:
-
-  - **`D`isclosure (`breaking confidentiality`)**
-
-  - **`A`lteration (`breaking integrity`)**
-
-  - **`D`estruction/`D`enial (`breaking availability`)**
-
-- **`Example`:**
-
-  - Attacker `leaks passwords` → **`Disclosure`**
-
-  - `Modifies` a company invoice → **`Alteration`**
-
-  - Launches `DDoS` on a website → **`Denial`**
-
-### **3. `Defense-in-Depth`**
-
-- **`What is it?`**
-  
-- A layered security strategy where multiple controls are in place so if one fails, others still protect the system.
-
-- **`Real-World Example`:**
-  
-  - Let’s say you're protecting a data center:
-
-  - **`Physical Security`** – **`Security guards`, `keycards`**
-
-  - **`Network Security`** – **`Firewalls`, `IDS`/`IPS`**
-
-  - **`System Security`** – **`Antivirus`, `EDR tools`**
-
-  - **`Access Control`** – **`Role-based access`**
-
-  - **`Encryption`** – **`For stored and transmitted data`**
-
-  - **`Monitoring`** – **`SIEM`, `alert systems`**
-
-- Even if an attacker breaks in at one level, other levels still stop or detect the threat.
-
-### **4. `Fundamental Concepts of Security Models`**
-
-- Security models are theoretical frameworks used to design secure systems
-
-### Security Models Table
-
-| **Model**                            | **Focus**                     | **Real-Life Example**                                                      |
-|--------------------------------------|-------------------------------|----------------------------------------------------------------------------|
-| **`Bell-LaPadula`**                  | Confidentiality only          | Military systems where data classification matters (Top Secret, Secret, Confidential) |
-| **`Biba Model`**                     | Integrity                     | Medical databases to prevent doctors from altering lab results             |
-| **`Clark-Wilson`**                   | Commercial integrity          | Banking systems ensuring only approved transactions are allowed            |
-| **`Brewer-Nash (Cinderella Model)`** | Prevent conflict of interest  | Legal firms can't let lawyers access two competing client cases            |
-
-### **5. `ISO/IEC 19249`**
-
-- **`What is it?`**
-  
-- This standard defines **`five architectural design principles`** for secure systems:
-
-  1. Security Policy Enforcement
-
-  2. Security Function Isolation
-
-  3. Least Privilege
-
-  4. Secure Defaults
-
-  5. Open Design
-
-- **`Example`:**
-  
-- A `banking app` following these principles:
-
-  - Gives minimum access to each user role (e.g., teller vs manager)
-
-  - Logs every transaction (Policy Enforcement)
-
-  - Runs critical functions in isolated containers (Isolation)
-
-### **6. `Zero Trust vs Trust but Verify`**
-
-- **`Trust but Verify` (`Old Model`):**
-  
-  - Once you’re inside the network, you're `trusted`.
-
-- **`Example`:**
-
-  - **`Employee connects to company Wi-Fi`** → **`Gets access to file servers without re-authentication`**.
-
-- **`Problem`:** If attacker gains internal access, they can move laterally without being stopped.
-
-- **`Zero Trust` (`Modern Model`):**
-
-- **`“Never trust, always verify.”`**
-  
-- Even inside the network, you must authenticate and authorize every time.
-
-- **`Real-World Example`:**
-  
-  - **`Google`** uses **`BeyondCorp` (`Zero Trust model`)**.
-
-- If you access `Gmail` on your work laptop, it checks:
-
-  - **`Device health`**
-
-  - **`User identity`**
-
-  - **`Geo-location`**
-
-  - **`Then allows access`**
-
-- **`Zero Trust`** = **`Verification at every layer`**
-
-### **7. `Threat vs Risk`**
-
-### Threat vs Risk Table
-
-| **Term**     | **Definition**                                      | **Real-Life Example**                                       |
-|--------------|----------------------------------------------------|--------------------------------------------------------------|
-| **`Threat`** | Potential danger (attacker or event)               | Phishing email, malware, disgruntled employee                |
-| **`Risk`**   | The impact if a threat exploits a vulnerability    | If phishing succeeds, attacker gets access to finance system |
-
-- **`Formula`:**
-  
-- **`Risk`** = **`Threat`** × **`Vulnerability`** × **`Impact`**
-
-- **`So`:**
-
-  - **`No vulnerability`** = **`No risk` (`even if threat exists`)**
-
-  - **`No threat`** = **`No risk` (`even if you have a vulnerability`)**
-
-### Summary Notes (Quick Reference Table)
-
-| **Principle**           | **Description**                                                        | **Example**                                   |
-|-------------------------|------------------------------------------------------------------------|-----------------------------------------------|
-| **`CIA`**               | **`Core principles` (`Confidentiality`, `Integrity`, `Availability`)** | **`Bank account info`**                       |
-| **`DAD`**               | **`Attacker goals` (`Disclosure`, `Alteration`, `Denial`)**            | **`Data leak`, `tampering`, `DDoS`**          |
-| **`Defense-in-Depth`**  | **`Layered security model`**                                           | **`Physical` + `network` + `access control`** |
-| **`Security Models`**   | **`Theoretical security designs`**                                     | **`Bell-LaPadula`, `Biba`, `Clark-Wilson`**   |
-| **`ISO/IEC 19249`**     | **`Design principles for secure architecture`**                        | **`Least Privilege`, `Secure Defaults`**      |
-| **`Zero Trust`**        | **`Never trust`, `always verify`**                                     | **`Google BeyondCorp`**                       |
-| **`Threat vs Risk`**    | **`Threat = attacker/event`, `Risk` = `damage`**                       | **`Phishing email` vs `stolen credentials`**  |
+- Tools and methodologies bring structure and efficiency to the entire process.
